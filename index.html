@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FDF to CSV</title>
+  </head>
+  <body>
+    <div class="text-center mt-5 align-content-center">
+      <h1>FDF to CSV</h1>
+      <ol>
+        <li>
+          <form action="/action_page.php" enctype="multipart/form-data">
+            <label for="myfile">Select the FDF file you wish to convert:</label>
+            <input type="file" id="myfile" name="myfile" />
+            <br />
+          </form>
+        </li>
+        <li>The CSV file will be downloaded automatically✨</li>
+      </ol>
+    </div>
+  </body>
+  <script type="text/javascript" src="parseFdf.js"></script>
+  <script>
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      const filename = e.target.filename;
+      const fdf = e.target.result;
+      const csv = fdfToCommentResponse(fdf);
+      const blob = new Blob([csv], { type: "text/csv" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename.replace(".fdf", ".csv");
+      a.click();
+    };
+
+    document.getElementById("myfile").addEventListener("change", function () {
+      const file = this.files[0];
+      reader.filename = file.name;
+      reader.readAsText(file);
+    });
+  </script>
+</html>
