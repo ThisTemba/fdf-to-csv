@@ -9,6 +9,7 @@ FDF to CSV is a simple web application that converts `.fdf` files containing com
 3. ![Screenshot 2023-01-23 145254](https://user-images.githubusercontent.com/36087610/214136307-014b7b44-70a3-48e8-b547-998407bd6b75.jpg)
 4. This will create a `.fdf` file. Upload the file to https://thistemba.github.io/fdf-to-csv/. The `.csv` file will be downloaded automatically.
 
-## Note
+## Notes
 
-Only tested on two files
+* Only tested on two files
+* This was based on my [dyd-to-csv](https://github.com/ThisTemba/dyd-to-csv) converter
