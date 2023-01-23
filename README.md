@@ -4,7 +4,7 @@ FDF to Comment Response is a simple web application that converts `.fdf` files c
 
 ## Usage
 
-Navigate to https://thistemba.github.io/fdf-to-comment-response/ and upload your `.fdf` file. The `.csv` file will be downloaded automatically.
+Navigate to https://thistemba.github.io/fdf-to-csv/ and upload your `.fdf` file. The `.csv` file will be downloaded automatically.
 
 ## Note
 
