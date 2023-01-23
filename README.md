@@ -1,6 +1,6 @@
-# FDF to Comment Response
+# FDF to CSV
 
-FDF to Comment Response is a simple web application that converts `.fdf` files containing comments exported from `.pdf` files into `.csv` files that list out the comments and their pages.
+FDF to CSV is a simple web application that converts `.fdf` files containing comments exported from `.pdf` files into `.csv` files that list out the comments and their pages.
 
 ## Usage
 
