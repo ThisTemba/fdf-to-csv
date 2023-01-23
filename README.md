@@ -4,8 +4,11 @@ FDF to Comment Response is a simple web application that converts `.fdf` files c
 
 ## Usage
 
-Navigate to https://thistemba.github.io/fdf-to-csv/ and upload your `.fdf` file. The `.csv` file will be downloaded automatically.
+1. Open a pdf file in Adobe Acrobat
+2. ![Screenshot 2023-01-23 145238](https://user-images.githubusercontent.com/36087610/214136293-4f8f617a-0d69-4b95-b56f-d038276945e1.jpg)
+3. ![Screenshot 2023-01-23 145254](https://user-images.githubusercontent.com/36087610/214136307-014b7b44-70a3-48e8-b547-998407bd6b75.jpg)
+4. This will create a `.fdf` file. Upload the file to https://thistemba.github.io/fdf-to-csv/. The `.csv` file will be downloaded automatically.
 
 ## Note
 
-(I haven't actually tested this at all at the time of writing, if the link doesn't work then I forgot to host it on github pages)
+Only tested on two files
