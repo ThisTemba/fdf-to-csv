@@ -10,6 +10,15 @@
       <h1>FDF to CSV</h1>
       <ol>
         <li>
+          Select a minimum comment length:
+          <input
+            title="Minimum comment length"
+            type="number"
+            id="minLength"
+            value="5"
+          />
+        </li>
+        <li>
           <form action="/action_page.php" enctype="multipart/form-data">
             <label for="myfile">Select the FDF file you wish to convert:</label>
             <input type="file" id="myfile" name="myfile" />
@@ -25,8 +34,9 @@
     var reader = new FileReader();
     reader.onload = function (e) {
       const filename = e.target.filename;
+      const minCommentLen = document.getElementById("minLength").value;
       const fdf = e.target.result;
-      const csv = fdfToCommentResponse(fdf);
+      const csv = fdfToCommentResponse(fdf, minCommentLen);
       const blob = new Blob([csv], { type: "text/csv" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");

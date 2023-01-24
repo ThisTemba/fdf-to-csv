@@ -31,17 +31,19 @@ function transposeCollection(collection) {
   return transposed.slice(1);
 }
 
-function chunksToCollection(chunks) {
+function chunksToCollection(chunks, minCommentLen) {
   const pageRegex = /Page \d*/;
 
   return chunks
     .filter((chunk) => {
-      return chunk.split("Contents(")[1]?.split(")/")[0];
+      const contents = chunk.split("Contents(")[1]?.split(")/")[0];
+      return contents && contents.length > minCommentLen;
     })
     .map((chunk) => {
       const comment = chunk.split("Contents(")[1].split(")/")[0];
-      const page = parseInt(chunk.match(pageRegex)[0].split(" ")[1]) + 1;
-      return { comment, page };
+      const author = chunk.split("/T(")[1].split(")/")[0];
+      const pdfPage = parseInt(chunk.match(pageRegex)[0].split(" ")[1]) + 1;
+      return { comment, author, pdfPage };
     });
 }
 
@@ -51,9 +53,9 @@ function fdfToChunks(rawData) {
   return chunks;
 }
 
-function fdfToCollection(fdf) {
+function fdfToCollection(fdf, minCommentLen) {
   const chunks = fdfToChunks(fdf);
-  const collection = chunksToCollection(chunks);
+  const collection = chunksToCollection(chunks, minCommentLen);
   return collection;
 }
 
@@ -82,8 +84,8 @@ function collectionToCsv(collection) {
   return csv;
 }
 
-function fdfToCommentResponse(fdf) {
-  const collection = fdfToCollection(fdf);
+function fdfToCommentResponse(fdf, minCommentLen) {
+  const collection = fdfToCollection(fdf, minCommentLen);
   const csv = collectionToCsv(collection);
   return csv;
 }
